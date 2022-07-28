@@ -13,8 +13,6 @@
 
     <div class="container body-content">
         @RenderBody()
-        @Html.Partial("_NewsLetter")
-
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>

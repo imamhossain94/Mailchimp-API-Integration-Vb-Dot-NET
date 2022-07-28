@@ -1,19 +1,22 @@
-﻿Public Class HomeController
+﻿Imports System.Threading.Tasks
+Imports MailChimpMVC_VbAPI.Controllers
+
+
+Public Class HomeController
     Inherits System.Web.Mvc.Controller
 
     Function Index() As ActionResult
         Return View()
     End Function
 
-    Function About() As ActionResult
-        ViewData("Message") = "Your application description page."
+    Async Function Audiences() As Task(Of ActionResult)
 
-        Return View()
+        Dim audienceList = Await New MailchimpController().GetAudienceList()
+
+        Return View(audienceList)
     End Function
 
-    Function Contact() As ActionResult
-        ViewData("Message") = "Your contact page."
-
+    Function Users() As ActionResult
         Return View()
     End Function
 

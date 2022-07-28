@@ -5,7 +5,7 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
-            @Html.ActionLink("Home", "Index", "Home", New With {.area = ""}, New With {.class = "navbar-brand"})
+            @Html.ActionLink("MailChimp API", "Index", "Home", New With {.area = ""}, New With {.class = "navbar-brand"})
         </div>
 
 
@@ -16,8 +16,8 @@
             <ul class="navbar-nav">
 
                 <li class="nav-item">@Html.ActionLink("Home", "Index", "Home", New With {.area = ""}, New With {.class = "nav-link"})</li>
-                <li class="nav-item">@Html.ActionLink("About", "About", "Home", New With {.area = ""}, New With {.class = "nav-link"})</li>
-                <li class="nav-item">@Html.ActionLink("Contact", "Contact", "Home", New With {.area = ""}, New With {.class = "nav-link"})</li>
+                <li class="nav-item">@Html.ActionLink("Audiences", "Audiences", "Home", New With {.area = ""}, New With {.class = "nav-link"})</li>
+                <li class="nav-item">@Html.ActionLink("Users", "Users", "Home", New With {.area = ""}, New With {.class = "nav-link"})</li>
 
             </ul>
         </div>
