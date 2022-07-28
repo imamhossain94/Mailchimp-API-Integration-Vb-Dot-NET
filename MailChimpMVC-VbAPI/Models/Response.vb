@@ -1,3 +1,3 @@
 ﻿Public Class Response
-    Public Shared message As String
+    Public message As String
 End Class

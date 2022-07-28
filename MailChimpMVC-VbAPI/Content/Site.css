@@ -20,7 +20,7 @@
 input,
 select,
 textarea {
-    max-width: 280px;
+    max-width: 100%;
 }
 
 .navbar-inverse .navbar-toggle:hover,
@@ -52,6 +52,7 @@ textarea {
     height: 50px;
     border-color: #ffffff;
     border-radius: 0;
+    width: 100%;
 }
 
 .newsletter .content.form-control:focus {
@@ -61,6 +62,7 @@ textarea {
 
 .newsletter .content .btn {
     min-height: 50px;
+    min-width: 150px;
     border-radius: 0;
     background: #243c4f;
     color: #fff;

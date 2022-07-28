@@ -11,27 +11,20 @@ End Code
         <div Class="row">
             <div Class="col-sm-12">
                 <div Class="content">
-                    <form id="retrnfrm" method="post">
+                    <div id="retrnfrm">
                         <h2> SUBSCRIBE To OUR NEWSLETTER</h2>
-
-
-                        @Using Html.BeginForm("AddSubscribeUserAsync", "HomeController", FormMethod.Post, New With {.class = "form-style-1", .id = "retrnfrm"})
-
-
-                            @<div Class="input-group">
-                                <input type="email" Class="form-control" placeholder="Enter your email" id="subscribe" name="subscribe">
+                        @Using Html.BeginForm("AddSubscribeUserAsync", "Mailchimp", FormMethod.Post)
+                            @<div Class="form-group d-flex justify-content-center">
+                                <input type="email" Class="form-control input-lg" placeholder="Enter your email" id="subscribe" name="subscribe">
                                 <Span Class="input-group-btn">
-                                    <Button Class="btn" type="submit" value="Subscribe">Subscribe Now</Button>
+                                    <Button Class="btn" type="submit" value="Subscribe">Subscrive Now</Button>
                                 </Span>
                             </div>
-
                             @If Not Model Is Nothing Then
-                                @<span>Model.message</span>
+                                @<span>@Model.message</span>
                             End If
-
                         End Using
-
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
