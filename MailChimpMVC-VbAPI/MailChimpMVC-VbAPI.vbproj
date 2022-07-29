@@ -49,6 +49,9 @@
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DotLiquid, Version=2.2.656.0, Culture=neutral, PublicKeyToken=82e46016ecf9f07c, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotLiquid.2.2.656\lib\net45\DotLiquid.dll</HintPath>
+    </Reference>
     <Reference Include="MailChimp.Net, Version=5.3.1.0, Culture=neutral, PublicKeyToken=37d26d538413c581, processorArchitecture=MSIL">
       <HintPath>..\packages\MailChimp.Net.V3.5.3.1\lib\net472\MailChimp.Net.dll</HintPath>
     </Reference>
@@ -299,6 +302,10 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
     <Content Include="Views\Shared\_NavBar.vbhtml" />
     <Content Include="Views\Shared\_NewsLetter.vbhtml" />
+    <Content Include="Views\Home\Groups.vbhtml" />
+    <Content Include="Views\Home\Categories.vbhtml" />
+    <Content Include="Views\Home\Update.vbhtml" />
+    <Content Include="Views\Home\Email.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />

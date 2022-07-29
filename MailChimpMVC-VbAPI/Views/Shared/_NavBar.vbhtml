@@ -18,7 +18,10 @@
                 <li class="nav-item">@Html.ActionLink("Home", "Index", "Home", New With {.area = ""}, New With {.class = "nav-link"})</li>
                 <li class="nav-item">@Html.ActionLink("Audiences", "Audiences", "Home", New With {.area = ""}, New With {.class = "nav-link"})</li>
                 <li class="nav-item">@Html.ActionLink("Users", "Users", "Home", New With {.area = ""}, New With {.class = "nav-link"})</li>
-
+                <li class="nav-item">@Html.ActionLink("Groups", "Groups", "Home", New With {.area = ""}, New With {.class = "nav-link"})</li>
+                <li class="nav-item">@Html.ActionLink("Categories", "Categories", "Home", New With {.area = ""}, New With {.class = "nav-link"})</li>
+                <li class="nav-item">@Html.ActionLink("Update Users", "Update", "Home", New With {.area = ""}, New With {.class = "nav-link"})</li>
+                <li class="nav-item">@Html.ActionLink("Email", "Email", "Home", New With {.area = ""}, New With {.class = "nav-link"})</li>
             </ul>
         </div>
     </div>

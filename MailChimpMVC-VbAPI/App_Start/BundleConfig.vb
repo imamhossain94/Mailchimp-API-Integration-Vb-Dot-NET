@@ -15,9 +15,6 @@ Public Module BundleConfig
         bundles.Add(New ScriptBundle("~/bundles/modernizr").Include(
                     "~/Scripts/modernizr-*"))
 
-        ' bundles.Add(New ScriptBundle("~/bundles/bootstrap").Include(
-        '           "~/Scripts/bootstrap.js"))
-
         bundles.Add(New Bundle("~/bundles/bootstrap").Include("~/Scripts/bootstrap.js"))
 
         bundles.Add(New StyleBundle("~/Content/css").Include(

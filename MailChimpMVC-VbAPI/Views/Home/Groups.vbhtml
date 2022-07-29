@@ -1,9 +1,9 @@
 ﻿@Imports MailChimp.Net.Models
-@ModelType IEnumerable(Of Member)
+@ModelType IEnumerable(Of InterestCategory)
 
 
 @Code
-    ViewData("Title") = "Users"
+    ViewData("Title") = "Groups"
 End Code
 
 
@@ -14,9 +14,13 @@ End Code
     <div class="mask h-100 rounded-3" style="background-color: rgba(0, 0, 0, 0.6);">
         <div class="d-flex justify-content-center align-items-center h-100">
             <div class="text-white p-5">
-                <h1 class="mb-3">Contacts List</h1>
+                <h1 class="mb-3">Groups List</h1>
 
-                @Using Html.BeginForm("Users", "Home", FormMethod.Post)
+                @*<h4 class="mb-3">
+                    Enter an audiences ID.
+                </h4>*@
+
+                @Using Html.BeginForm("Groups", "Home", FormMethod.Post)
                     @<div Class="form-group form bg-dark d-flex justify-content-center">
                         <input type="text" Class="form-control input-lg" placeholder="Enter an audiences id" name="audiencesId">
                         <Span Class="input-group-btn">
@@ -39,8 +43,10 @@ End Code
         <tr>
             <th scope="col">#</th>
             <th scope="col">Id</th>
-            <th scope="col">Email Address</th>
-            <th scope="col">Rating</th>
+            <th scope="col">List Id</th>
+            <th scope="col">Title</th>
+            <th scope="col">Display Order</th>
+            <th scope="col">Title</th>
         </tr>
     </thead>
     <tbody>
@@ -51,8 +57,10 @@ End Code
                 @<tr>
                     <th scope="row"> @id</th>
                     <td>@value.Id</td>
-                    <td>@value.EmailAddress</td>
-                    <td>@value.MemberRating</td>
+                    <td>@value.ListId</td>
+                    <td>@value.Title</td>
+                    <td>@value.DisplayOrder</td>
+                    <td>@value.DisplayType</td>
                 </tr>
                 id += 1
             Next

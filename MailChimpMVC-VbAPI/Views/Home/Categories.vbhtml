@@ -1,9 +1,9 @@
 ﻿@Imports MailChimp.Net.Models
-@ModelType IEnumerable(Of Member)
+@ModelType IEnumerable(Of Interest)
 
 
 @Code
-    ViewData("Title") = "Users"
+    ViewData("Title") = "Categories"
 End Code
 
 
@@ -14,15 +14,17 @@ End Code
     <div class="mask h-100 rounded-3" style="background-color: rgba(0, 0, 0, 0.6);">
         <div class="d-flex justify-content-center align-items-center h-100">
             <div class="text-white p-5">
-                <h1 class="mb-3">Contacts List</h1>
+                <h1 class="mb-3">Categories of Group</h1>
 
-                @Using Html.BeginForm("Users", "Home", FormMethod.Post)
+                @Using Html.BeginForm("Categories", "Home", FormMethod.Post)
                     @<div Class="form-group form bg-dark d-flex justify-content-center">
                         <input type="text" Class="form-control input-lg" placeholder="Enter an audiences id" name="audiencesId">
-                        <Span Class="input-group-btn">
-                            <Button Class="btn btn-dark" type="submit">Search</Button>
-                        </Span>
+                        <input type="text" Class="form-control input-lg" placeholder="Enter group id" name="groupsId">
                     </div>
+
+                    @<Span Class="input-group-btn">
+                        <Button Class="btn btn-dark" type="submit">Search</Button>
+                    </Span>
                 End Using
 
             </div>
@@ -39,8 +41,11 @@ End Code
         <tr>
             <th scope="col">#</th>
             <th scope="col">Id</th>
-            <th scope="col">Email Address</th>
-            <th scope="col">Rating</th>
+            <th scope="col">List Id</th>
+            <th scope="col">Interest Category Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Display Order</th>
+            <th scope="col">Subscriber Count</th>
         </tr>
     </thead>
     <tbody>
@@ -51,8 +56,11 @@ End Code
                 @<tr>
                     <th scope="row"> @id</th>
                     <td>@value.Id</td>
-                    <td>@value.EmailAddress</td>
-                    <td>@value.MemberRating</td>
+                    <td>@value.ListId</td>
+                    <td>@value.InterestCategoryId</td>
+                    <td>@value.Name</td>
+                    <td>@value.DisplayOrder</td>
+                    <td>@value.SubscriberCount</td>
                 </tr>
                 id += 1
             Next
