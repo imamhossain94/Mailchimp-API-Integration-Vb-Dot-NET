@@ -5,7 +5,7 @@ End Code
 
 <div class="m-5">
 
-    @Using Html.BeginForm("SendEmail", "Mailchimp", FormMethod.Post)
+    @Using Html.BeginForm("Email", "Home", FormMethod.Post)
 
 
         @<div class="mb-3">

@@ -15,6 +15,8 @@ Namespace Controllers
             Return View()
         End Function
 
+        ' create an instance of MailChimpManager
+        ' put the API key into the constructor of the MailChimpManager
         Dim manager As IMailChimpManager = New MailChimpManager("YourApiKey")
 
         Async Function AddSubscribeUserAsync(frc As FormCollection) As Task
@@ -24,7 +26,9 @@ Namespace Controllers
                 Dim userEmail As String = frc.Get("subscribe")
                 Dim member As Member = New Member()
                 member.EmailAddress = userEmail
+
                 Await manager.Members.AddOrUpdateAsync(listId, member)
+
                 Response.Write("<script>alert('Thank you, you has just subscribed into the system');</script>")
             Catch ex As Exception
                 Response.Write("<script>alert('Something wents wrong!');</script>")
@@ -95,6 +99,11 @@ Namespace Controllers
 
             If audieancesId IsNot Nothing Then
 
+                'Get segments list
+                Dim result = Await manager.ListSegments.GetAllAsync(audieancesId).ConfigureAwait(False)
+                Dim segment As ListSegment = result.ElementAt(0)
+
+
                 Dim campaignSettings As Setting = New Setting With {
                     .ReplyTo = "softengr1.masleap@gmail.com",
                     .FromName = replyFrom,
@@ -102,28 +111,14 @@ Namespace Controllers
                     .SubjectLine = emailSubject
                 }
 
-                Dim conditionArray() As Models.Condition = {
-                    New Models.Condition With {
-                        .Field = "Masleap",
-                        .Operator = [Operator].InterestContains,
-                        .Value = "all of",
-                        .Extra = "Developer"
-                    }
-                }
-
-                Dim condition As IEnumerable(Of Models.Condition) = conditionArray
-
                 ' create the campaign into MailChimp
                 Dim campaign = Await manager.Campaigns.AddAsync(
                     New Campaign With {
                         .Settings = campaignSettings,
                         .Recipients = New Recipient With {
                             .ListId = audieancesId,
-                            .SegmentText = "Group or new segment",
-                            .SegmentOptions = New SegmentOptions With {
-                                .Match = Match.All,
-                                .Conditions = condition
-                            }
+                            .SegmentText = segment.Name,
+                            .SegmentOptions = segment.Options
                         },
                         .Type = CampaignType.Regular
                     }).ConfigureAwait(False)
